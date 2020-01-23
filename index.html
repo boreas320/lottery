@@ -193,6 +193,13 @@
                     return !choosed[getKey(m)];
                 })
                 .map(function(m){
+                    var index = config.defaultMember.indexOf(m.name);
+                    if (index >= 0) {
+                        return Object.assign({
+                            score: index-member.length
+                        }, m);
+                    }
+
                     return Object.assign({
                       score: Math.random()
                     }, m);
